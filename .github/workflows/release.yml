@@ -1,0 +1,40 @@
+name: Release
+
+# Creates a GitHub release when a version tag (vX.Y.Z) is pushed.
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: pip install -r requirements-dev.txt
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+      - name: Tag must match the VERSION file
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          version="$(tr -d '[:space:]' < VERSION)"
+          if [ "$tag" != "$version" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match VERSION ($version)"; exit 1
+          fi
+      - name: Prepare release assets
+        run: |
+          mkdir dist
+          cp eudamed-xml-generator.html "dist/eudamed-xml-generator-${GITHUB_REF_NAME}.html"
+          (cd dist && sha256sum *.html > SHA256SUMS.txt)
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true

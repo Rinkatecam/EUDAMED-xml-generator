@@ -1,0 +1,24 @@
+# --- Safety net: never commit real device data, credentials or portal responses ---
+*.xlsx
+*.xls
+*.xlsm
+*.zip
+APP-DTX-*.xml
+EUDAMED_XML_*/
+EUDAMED_*_POST_*.xml
+*.env
+.env*
+*token*
+*.BACKUP*
+*.bak
+
+# --- Tooling / OS ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
