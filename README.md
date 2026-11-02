@@ -82,7 +82,9 @@ if entered, your access token - treat them as confidential.**
 * Automated tests cover syntax, version consistency, repository hygiene, template/schema consistency and
   the portal-rule checker. The application JavaScript is **not** yet executed by automated tests - see the
   roadmap in [`docs/development.md`](docs/development.md).
-* The `UDI_DI.POST` message shape is validated against the XSD; reports from live portal runs are welcome.
+* `UDI_DI.POST` messages of this shape (adding UDI-DIs to an existing Basic UDI-DI) are confirmed to be
+  accepted by the live portal (status as of November 2026). How the portal answers when such a message
+  contains a UDI-DI that is already registered is not documented yet - anonymised reports are welcome.
 
 ## Examples and helper tools
 

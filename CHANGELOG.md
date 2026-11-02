@@ -14,6 +14,10 @@ Two version numbers exist and are deliberately kept separate:
 
 ## [Unreleased]
 
+### Documentation
+- `UDI_DI.POST` messages (UDI-DIs added to an existing Basic UDI-DI) are now documented as confirmed to be
+  accepted by the live portal (status as of 2026-11). The 1.0.0 notes below describe the state at release time.
+
 ## [1.0.0] - 2026-11-02
 
 First public release.

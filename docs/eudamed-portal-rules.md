@@ -92,9 +92,10 @@ UDI-DIs with `device:UDIDIData` (`UDI_DI.POST`), which references the Basic UDI-
 This is what the generator does. `device:UDIDIData` uses `xsi:type="udidi:MDRUDIDIDataType"` (the schema
 itself marks the `device:`-namespace wrapper type as "do not use").
 
-> Status: the `UDI_DI.POST` shape is validated against the XSD. Behaviour on the live portal for
-> already-registered UDI-DIs, and the `entityCode` echoed for `UDI_DI.POST`, have not been documented here
-> yet - contributions with anonymised acknowledgements are very welcome.
+> Status (as of November 2026): `UDI_DI.POST` messages of this shape - UDI-DIs added to an existing Basic
+> UDI-DI - are **confirmed to be accepted by the live portal** (evidence level: Observed). Behaviour for an
+> already-registered UDI-DI, and the `entityCode` echoed in `UDI_DI.POST` acknowledgements, have not been
+> documented here yet - contributions with anonymised acknowledgements are very welcome.
 
 ## 5. Language of comment texts (Observed)
 
